@@ -1,0 +1,31 @@
+<h1>Lista de Posts Cadastrados:</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Título</th>
+      <th scope="col">Texto</th>
+      <th scope="col">Autor</th>
+      <th scope="col">Status</th>
+      <th scope="col">Comentário</th>
+      <th scope="col">Curtidas</th>
+      <th scope="col">Editar</th>
+      <th scope="col">Excluir</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each posts}}
+    <tr>
+      <th scope="row">{{this.dataValues.id}}</th>
+      <td>{{this.dataValues.titulo}}</td>
+      <td>{{this.dataValues.texto}}</td>
+      <td>{{this.dataValues.autor}}</td>
+      <td>{{this.dataValues.status}}</td>
+      <td>{{this.dataValues.comentario}}</td>
+      <td>{{this.dataValues.curtidas}}</td>
+      <td><a href="/post/exibir/{{this.dataValues.id}}">Editar</a></td>
+      <td><a href="/post/excluir/{{this.dataValues.id}}">Excluir</a></td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
