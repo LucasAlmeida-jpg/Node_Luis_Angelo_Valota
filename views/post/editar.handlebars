@@ -20,12 +20,15 @@
     </div>
     {{#if admin}}
     <div>
-        <label class="py-4"> Status
-            <select id="status" name="status">
-                <option value="0">Bloqueado</option>
-                <option value="1">Liberado</option>
-            </select>
-        </label>
+        <label> Status </label><br>
+        <div class="form-group row">
+            <div class="col-xs-4">
+                <select class="input-select" id="status" name="status">
+                    <option value="0">Liberado</option>
+                    <option value="1">Bloqueado</option>
+                </select>
+            </div>
+        </div>
     </div>
     {{/if}}
 
@@ -36,14 +39,76 @@
         </div>
     </div>
 
-    <div class="form-group row">
+    <div class="form-group d-flex align-items-center row">
         <div class="col-xs-4">
             <label for="autor">Curtidas:</label>
             <input type="text" class="form-control" id="curtidas" name="curtidas" value="{{curtidas}}">
+            <div class="button-like">
+                <div class="btn-group" role="group">
+                    <button type="button" id="btnCurtir" class="btn btn-primary">Curtir</button>
+                </div>
+                <div class="btn-group" role="group">
+                    <button type="button" id="btnDescurtir" class="btn btn-primary">Descurtir</button>
+                </div>
+            </div>
         </div>
     </div>
-
     <div class="form-group">
-        <input type="submit" class="btn btn-default" value="Enviar">
+        <input type="submit" class="btn btn-secondary" value="Enviar formulário">
     </div>
 </form>
+
+<style>
+    .input-select {
+        width: 100%;
+        padding: 12px;
+        border-radius: 4px;
+    }
+
+    .button-like {
+        margin-top: 14px;
+    }
+
+    .btn-primary {
+        border-radius: 6px;
+    }
+
+    .btn-secondary {
+        width: 362px;
+        padding: 12px;
+    }
+
+    .button-like {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+</style>
+
+<script>
+    // Obtém os elementos dos botões e do campo de curtidas
+    const btnCurtir = document.getElementById('btnCurtir');
+    const btnDescurtir = document.getElementById('btnDescurtir');
+    const inputCurtidas = document.getElementById('curtidas');
+
+    btnCurtir.addEventListener('click', () => {
+
+        let curtidas = parseInt(inputCurtidas.value);
+
+
+        curtidas++;
+
+
+        inputCurtidas.value = curtidas;
+    });
+
+    btnDescurtir.addEventListener('click', () => {
+
+        let curtidas = parseInt(inputCurtidas.value);
+
+        curtidas--;
+
+
+        inputCurtidas.value = curtidas;
+    });
+</script>

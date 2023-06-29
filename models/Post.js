@@ -22,7 +22,7 @@ const Post = sequelize.define('post', {
       },
       comentario: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: true
       },
       curtidas: {
         type: Sequelize.INTEGER,
