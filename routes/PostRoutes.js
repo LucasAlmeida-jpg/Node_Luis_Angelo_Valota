@@ -102,6 +102,7 @@ postRouter.post('/editar', (req, res) => {
     status: req.body.status,
     comentario: req.body.comentario,
     curtidas: req.body.curtidas,
+    admin:  req.session.usuarioLogado.admin,
     }, { where: {id: req.body.id}} ).then(function(){
       res.redirect("/post/listar");
     }).catch(function(erro){

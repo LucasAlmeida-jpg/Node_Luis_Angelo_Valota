@@ -14,7 +14,7 @@ const Post = sequelize.define('post', {
     },
     autor: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: true
       },
       status: {
         type: Sequelize.TINYINT(1),
